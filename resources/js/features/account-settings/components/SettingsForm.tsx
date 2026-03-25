@@ -56,29 +56,12 @@ export const SettingsForm = ({
                     justifyContent: 'center',
                 }}
             >
-                <Typography color="text.secondary">
-                    Select an account to open its settings.
-                </Typography>
             </Paper>
         );
     }
 
     return (
         <Paper variant="outlined" sx={{ p: 3, flex: 1 }}>
-            <Stack spacing={1}>
-                <Typography variant="h5">{account.name}</Typography>
-                <Typography variant="body2" color="text.secondary">
-                    This form is generated from `settingsConfig`. Add a new field to the config and
-                    it will appear here automatically.
-                </Typography>
-                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', pt: 1 }}>
-                    {config.map((field) => (
-                        <Chip key={field.key} label={field.type} size="small" variant="outlined" />
-                    ))}
-                </Box>
-            </Stack>
-
-            <Divider sx={{ my: 3 }} />
 
             <Box
                 component="form"

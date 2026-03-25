@@ -36,7 +36,7 @@ export const AccountList = ({
         return (
             <Paper variant="outlined" sx={{ p: 3 }}>
                 <Typography color="text.secondary">
-                    No accounts were returned from the database.
+                    No accounts.
                 </Typography>
             </Paper>
         );
@@ -46,9 +46,6 @@ export const AccountList = ({
         <Paper variant="outlined" sx={{ p: 2 }}>
             <Stack spacing={0.5}>
                 <Typography variant="h6">Accounts</Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Open account settings from the action column.
-                </Typography>
             </Stack>
 
             <TableContainer sx={{ mt: 2 }}>

@@ -60,11 +60,7 @@ export const AccountSettingsDashboard = () => {
                 <Stack spacing={3}>
                     <Paper variant="outlined" sx={{ p: 3 }}>
                         <Stack spacing={1}>
-                            <Typography variant="h4">Account Settings Dashboard</Typography>
-                            <Typography color="text.secondary">
-                                A config-driven settings system with reusable UI, strong TypeScript
-                                types and per-account persistence.
-                            </Typography>
+                            <Typography variant="h4">Account Settings</Typography>
                         </Stack>
                     </Paper>
 
@@ -82,7 +78,7 @@ export const AccountSettingsDashboard = () => {
                             <Stack alignItems="center" spacing={2}>
                                 <CircularProgress size={28} />
                                 <Typography color="text.secondary">
-                                    Loading accounts from database...
+                                    Loading accounts...
                                 </Typography>
                             </Stack>
                         </Paper>
@@ -114,7 +110,7 @@ export const AccountSettingsDashboard = () => {
                             {selectedAccount ? `${selectedAccount.name} settings` : 'Account settings'}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Edit account-specific settings generated from configuration.
+                            Edit account settings.
                         </Typography>
                     </Stack>
                     <IconButton
