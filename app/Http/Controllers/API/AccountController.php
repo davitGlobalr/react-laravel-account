@@ -49,6 +49,10 @@ class AccountController extends Controller
         content: new OA\JsonContent(
             properties: [
                 new OA\Property(property: 'status', type: 'boolean', example: true),
+                new OA\Property(property: 'per_page', type: 'integer', example: 10),
+                new OA\Property(property: 'current_page', type: 'integer', example: 1),
+                new OA\Property(property: 'total', type: 'integer', example: 2),
+                new OA\Property(property: 'last_page', type: 'integer', example: 1),
                 new OA\Property(
                     property: 'data',
                     type: 'array',
@@ -64,8 +68,14 @@ class AccountController extends Controller
     #[OA\Response(response: 500, description: 'Internal Server Error')]
     public function list(AccountListRequest $request): JsonResponse
     {
-        $accounts = $this->accountService->list($request->validated('page') ?? 1, $request->validated('per_page') ?? 10);
-        return response()->json(['data' => AccountResource::collection($accounts), 'status' => true]);
+        $accountsPaginator = $this->accountService->list($request->validated('page') ?? 1, $request->validated('per_page') ?? 10);
+        return response()->json([
+            'data' => AccountResource::collection($accountsPaginator),
+            'per_page' => $accountsPaginator->perPage(),
+            'current_page' => $accountsPaginator->currentPage(),
+            'total' => $accountsPaginator->total(),
+            'last_page' => $accountsPaginator->lastPage(),
+            'status' => true]);
     }
 
     #[OA\Get(

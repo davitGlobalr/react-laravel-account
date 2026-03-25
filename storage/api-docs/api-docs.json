@@ -53,6 +53,22 @@
                                             "type": "boolean",
                                             "example": true
                                         },
+                                        "per_page": {
+                                            "type": "integer",
+                                            "example": 10
+                                        },
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 2
+                                        },
+                                        "last_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
                                         "data": {
                                             "type": "array",
                                             "items": {
@@ -429,7 +445,7 @@
                             }
                         ],
                         "nullable": true,
-                        "description": "Account settings. May be an empty array when settings are absent."
+                        "description": "Account settings."
                     }
                 },
                 "type": "object"
