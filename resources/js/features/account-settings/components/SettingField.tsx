@@ -10,16 +10,17 @@ import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { Controller, type Control } from 'react-hook-form';
+import { Controller  } from 'react-hook-form';
+import type {Control} from 'react-hook-form';
 import type {
     MultiSelectSettingField,
     SelectSettingField,
-    SettingField,
+    SettingField as SettingFieldConfig,
     SettingsValues,
 } from '@/features/account-settings/types/settings';
 
 type SettingFieldProps = {
-    fieldConfig: SettingField;
+    fieldConfig: SettingFieldConfig;
     control: Control<SettingsValues>;
 };
 

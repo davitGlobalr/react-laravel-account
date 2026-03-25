@@ -1,9 +1,10 @@
-import { alpha, type Components } from '@mui/material/styles';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import { alpha   } from '@mui/material/styles';
+import type {Components, Theme} from '@mui/material/styles';
 import { svgIconClasses } from '@mui/material/SvgIcon';
 import { gray, brand } from '../themePrimitives';
 
-export const inputsCustomizations: Components = {
+export const inputsCustomizations: Components<Theme> = {
     MuiButtonBase: {
         defaultProps: {
             disableTouchRipple: true,

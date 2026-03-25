@@ -93,4 +93,3 @@ export type PaginatedAccountsResponse = {
     last_page: number;
     status: boolean;
 };
-export class AccountSettingsStorage {}

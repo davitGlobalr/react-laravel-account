@@ -1,10 +1,11 @@
-import { alpha, type Components } from '@mui/material/styles';
 import { menuItemClasses } from '@mui/material/MenuItem';
 import { selectClasses } from '@mui/material/Select';
+import { alpha   } from '@mui/material/styles';
+import type {Components, Theme} from '@mui/material/styles';
 import { tabClasses } from '@mui/material/Tab';
 import { gray, brand } from '../themePrimitives';
 
-export const navigationCustomizations: Components = {
+export const navigationCustomizations: Components<Theme> = {
     MuiMenuItem: {
         styleOverrides: {
             root: ({ theme }) => ({

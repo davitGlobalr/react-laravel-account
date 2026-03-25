@@ -1,7 +1,8 @@
-import { alpha, type Components } from '@mui/material/styles';
+import { alpha   } from '@mui/material/styles';
+import type {Components, Theme} from '@mui/material/styles';
 import { gray } from '../themePrimitives';
 
-export const surfacesCustomizations: Components = {
+export const surfacesCustomizations: Components<Theme> = {
     MuiAppBar: {
         styleOverrides: {
             root: ({ theme }) => ({
@@ -15,7 +16,7 @@ export const surfacesCustomizations: Components = {
     },
     MuiPaper: {
         styleOverrides: {
-            root: ({ theme }) => ({
+            root: () => ({
                 backgroundImage: 'none',
             }),
         },

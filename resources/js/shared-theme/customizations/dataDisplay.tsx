@@ -1,13 +1,14 @@
-import { alpha, type Components } from '@mui/material/styles';
 import { buttonBaseClasses } from '@mui/material/ButtonBase';
 import { chipClasses } from '@mui/material/Chip';
 import { iconButtonClasses } from '@mui/material/IconButton';
 import { listItemIconClasses } from '@mui/material/ListItemIcon';
+import { alpha   } from '@mui/material/styles';
+import type {Components, Theme} from '@mui/material/styles';
 import { svgIconClasses } from '@mui/material/SvgIcon';
 import { typographyClasses } from '@mui/material/Typography';
 import { gray, green, red } from '../themePrimitives';
 
-export const dataDisplayCustomizations: Components = {
+export const dataDisplayCustomizations: Components<Theme> = {
     MuiList: {
         styleOverrides: {
             root: {
