@@ -23,7 +23,7 @@ class AccountController extends Controller
     }
 
     #[OA\Get(
-        path: 'api/accounts',
+        path: 'api/accounts/list',
         operationId: 'getAccountsList',
         description: 'Get paginated list of accounts',
         summary: 'Get accounts list',
