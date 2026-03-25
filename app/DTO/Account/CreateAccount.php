@@ -7,7 +7,7 @@ use App\DTO\BaseDTO;
 final  class CreateAccount extends BaseDTO
 {
     public function __construct(
-        string $name,
+        public string $name,
     ) {
 
     }

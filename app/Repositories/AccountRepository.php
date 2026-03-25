@@ -23,7 +23,7 @@ readonly class AccountRepository implements AccountRepositoryContract
      */
     public function list(int $page = 1, int $perPage = 10): LengthAwarePaginator
     {
-        return $this->model::query()->paginate($perPage, $page);
+        return $this->model::query()->with('settings')->paginate($perPage, ['*'], 'page', $page);
     }
 
     /**

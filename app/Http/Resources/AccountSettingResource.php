@@ -4,7 +4,23 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use OpenApi\Attributes as OA;
 
+#[OA\Schema(
+    schema: 'AccountSettingResource',
+    title: 'Account Setting Resource',
+    required: ['id'],
+    properties: [
+        new OA\Property(property: 'id', type: 'integer', example: 1),
+        new OA\Property(
+            property: 'settings',
+            type: 'object',
+            example: ['theme' => 'dark', 'notifications' => true],
+            nullable: true
+        ),
+    ],
+    type: 'object'
+)]
 class AccountSettingResource extends JsonResource
 {
     /**
@@ -17,8 +33,6 @@ class AccountSettingResource extends JsonResource
         return [
             'id' => $this->id,
             'settings' => $this->settings,
-            'account_id' => $this->account_id,
-            'account' => AccountResource::make($this->whenLoaded('account')),
         ];
     }
 }
