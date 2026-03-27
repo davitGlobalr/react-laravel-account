@@ -1,25 +1,61 @@
-# Laravel + React Starter Kit
+# React Starter Kit
 
-## Introduction
+Laravel + React project with Docker, MySQL, Redis, Nginx, and Vite.
 
-Our React starter kit provides a robust, modern starting point for building Laravel applications with a React frontend using [Inertia](https://inertiajs.com).
+## Run Project
 
-Inertia allows you to build modern, single-page React applications using classic server-side routing and controllers. This lets you enjoy the frontend power of React combined with the incredible backend productivity of Laravel and lightning-fast Vite compilation.
+### 1. Start containers
 
-This React starter kit utilizes React 19, TypeScript, Tailwind, and the [shadcn/ui](https://ui.shadcn.com) and [radix-ui](https://www.radix-ui.com) component libraries.
+```bash
+docker compose up -d --build
+```
 
-## Official Documentation
+### 2. Install PHP dependencies
 
-Documentation for all Laravel starter kits can be found on the [Laravel website](https://laravel.com/docs/starter-kits).
+```bash
+docker compose exec app composer install
+```
 
-## Contributing
+### 3. Create environment file
 
-Thank you for considering contributing to our starter kit! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
+```
 
-## Code of Conduct
+### 4. Generate application key
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+docker compose exec app php artisan key:generate
+```
 
-## License
+### 5. Run migrations
 
-The Laravel + React starter kit is open-sourced software licensed under the MIT license.
+```bash
+docker compose exec app php artisan migrate
+```
+
+### 6. Seed database
+
+```bash
+docker compose exec app php artisan db:seed
+```
+
+### 7. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 8. Build frontend
+
+```bash
+npm run build
+```
+
+## Live Demo
+http://5.45.112.76:8042/
+
+## Services
+
+- Application: `http://localhost:8042`
+- phpMyAdmin: `http://localhost:8045`
