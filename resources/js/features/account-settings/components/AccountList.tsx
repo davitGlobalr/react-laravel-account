@@ -9,7 +9,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import type { Account } from '@/features/account-settings/types/settings';
 
@@ -48,14 +47,14 @@ export const AccountList = ({
                 <Typography variant="h6">Accounts</Typography>
             </Stack>
 
-            <TableContainer sx={{ mt: 2 }}>
-                <Table>
+            <TableContainer component={Paper} sx={{ mt: 2 }}>
+                <Table sx={{ minWidth: 650 }} size="small" aria-label="accounts table">
                     <TableHead>
                         <TableRow>
                             <TableCell width="20%">ID</TableCell>
                             <TableCell>Name</TableCell>
                             <TableCell align="right" width="20%">
-                                Action
+                                Settings
                             </TableCell>
                         </TableRow>
                     </TableHead>
@@ -66,18 +65,17 @@ export const AccountList = ({
                                     key={account.id}
                                     hover
                                     selected={selectedAccountId === account.id}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell>{account.id}</TableCell>
                                     <TableCell>{account.name}</TableCell>
                                     <TableCell align="right">
-                                        <Tooltip title="Open settings">
-                                            <IconButton
-                                                color="primary"
-                                                onClick={() => onSelect(account.id)}
-                                            >
-                                                <SettingsIcon />
-                                            </IconButton>
-                                        </Tooltip>
+                                        <IconButton
+                                            color="primary"
+                                            onClick={() => onSelect(account.id)}
+                                        >
+                                            <SettingsIcon />
+                                        </IconButton>
                                     </TableCell>
                                 </TableRow>
                             );
